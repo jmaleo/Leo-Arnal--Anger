@@ -5,7 +5,7 @@ import { Center } from '@react-three/drei'
 import * as THREE from 'three'
 
 export const Logo = () => {
-  const obj = useLoader(OBJLoader, '/myLogo.obj')
+  const obj = useLoader(OBJLoader, `${import.meta.env.BASE_URL}models/myLogo.obj`)
   const groupRef = useRef<THREE.Group>(null)
   const { viewport } = useThree()
   const isMobile = viewport.width < 5
