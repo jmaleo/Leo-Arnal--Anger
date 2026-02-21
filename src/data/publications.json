@@ -1,0 +1,20 @@
+{
+  "response":{
+    "numFound":1,
+    "start":0,
+    "numFoundExact":true,
+    "docs":[{
+      "title_s":["Survey on differential estimators for 3d point clouds"],
+      "journalTitle_s":"Computer Graphics Forum",
+      "authLastName_s":["Arnal--Anger","Lejemble","Coeurjolly","Barthe","Mellado"],
+      "authFirstName_s":["Léo","Thibault","David","Loïc","Nicolas"],
+      "authFullName_s":["Léo Arnal--Anger","Thibault Lejemble","David Coeurjolly","Loïc Barthe","Nicolas Mellado"],
+      "uri_s":"https://hal.science/hal-05515309v1",
+      "docType_s":"ART",
+      "thumbId_i":9860688,
+      "seeAlso_s":["https://storm-irit.github.io/pcloud-differential-estimation-benchmark-website/"],
+      "producedDateY_i":2026,
+      "fileMain_s":"https://hal.science/hal-05515309/document"
+    }]
+  }
+}
