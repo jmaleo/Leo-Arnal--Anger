@@ -31,11 +31,11 @@ export const Logo = () => {
 
   const pointsGeometry = useMemo(() => {
     let geo: THREE.BufferGeometry | null = null;
-    obj.traverse((child) => {
-      if ((child as THREE.Mesh).isMesh && !geo) {
-        geo = (child as THREE.Mesh).geometry
-      }
-    })
+    // obj.traverse((child) => {
+    //   if ((child as THREE.Mesh).isMesh && !geo) {
+    //     geo = (child as THREE.Mesh).geometry
+    //   }
+    // })
     return geo
   }, [obj])
 

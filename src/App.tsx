@@ -155,8 +155,7 @@ function ScrollToTop() {
 }
 
 // --- PAGE D'ACCUEIL (Ancienne App complète) ---
-function Home() {
-  
+function Home({ isReady }: { isReady: boolean }) { // <-- NOUVEAU PROP ICI
   const location = useLocation();
 
   // Gestion du "Retour Système"
@@ -189,11 +188,13 @@ function Home() {
       </div>
 
       <div className="fixed inset-0 z-[1] pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-      <div className="fixed bottom-0 left-0 w-full h-[50vh] z-[1] pointer-events-none bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent"></div>
-
+      <div className="fixed bottom-0 left-0 w-full h-[50vh] z-[1] pointer-events-none bg-gradient-to-t from-slate-950 via-slate-950/10 bg-gradient-to-t"></div>
+      
+      {isReady && (
+      <>
       <HeroSection />
 
-      <section id="contenu" className="relative z-20 w-full bg-slate-950 min-h-screen border-t-2 border-white shadow-[0_-50px_100px_rgba(0,0,0,1)] pt-24 md:pt-32 pb-12">
+      <section id="contenu" className="relative z-20 w-full bg-slate-950/92 min-h-screen border-t-2 border-white pt-24 md:pt-32 pb-12">
          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-950 border-2 border-white px-4 py-1">
             <span className="font-mono text-[10px] font-bold text-white uppercase tracking-widest">&gt;_</span>
          </div>
@@ -205,6 +206,8 @@ function Home() {
           <ContactSection />
         </div>
       </section>
+      </>
+      )}
     </div>
   )
 }
@@ -214,7 +217,6 @@ function App() {
   const [isBooting, setIsBooting] = useState(true);
 
   useEffect(() => {
-    // Le "Loader" dure 2 secondes, le temps de charger la 3D et de jouer l'animation texte
     const timer = setTimeout(() => {
       setIsBooting(false);
     }, 2000);
@@ -229,7 +231,7 @@ function App() {
         <Router>
           <SmoothScroll>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home isReady={!isBooting} />} />
               
               <Route path="/project/Template" element={<ProjectTemplate />} />
               {/* <Route path="/project/Beta" element={<ProjectBeta />} /> */}
